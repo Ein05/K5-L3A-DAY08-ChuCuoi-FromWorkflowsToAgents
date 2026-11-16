@@ -50,12 +50,14 @@ Luồng xử lý trong `run_claim` → `_run`:
 
 - Kiểm tra code của Shape B (Mai Huy Hoat) và Shape C (Lehaibac05) sau khi merge vào `main`: mỗi shape 62/62 test public, không ai sửa file thước đo (`metrics.py`, `durability.py`, `policy.py`, `config/`, `data/`).
 - Script `integration_check` chạy theo thứ tự: smoke → cổng host → chặn sửa file thước đo → ma trận student từng shape → crash suite → (tùy chọn) benchmark → `check_submission`. Ma trận được lọc theo tham số shape trong test id vì `-k single` còn khớp nhầm tên test `*single_run_cases*`.
-- Sinh `src/reports/crash.json` và `src/reports/benchmark.json` bằng công cụ của lab, không sửa tay.
+- Sinh `src/reports/crash.json`, `src/reports/benchmark.json` và `src/reports/ablation_r1.json` bằng công cụ của lab, không sửa tay.
+- Phát hiện Shape B không tính model call (0 call/trial, cost/success thấp giả tạo). Sửa `decide()` để mỗi bước ReAct gọi MockLLM với prompt chỉ có trạng thái bước và ghi event `step`; thêm `src/tests/test_single_budget.py` (2 test). Shape B vẫn 62/62.
+- Hoàn thiện phần chung của nhóm: `report/team/decision_adr.md`, `report/team/research_card.md` (R1 + ablation workflow → orchestrator), `report/team/group_report.md`, `TEAM.md`.
 
 ## 4. Bằng chứng
 
-- Commit: f49e55f
-- Ma trận student: `python -m pytest -q -m student -o addopts=` → 268 passed (4 shape, cùng các test nhóm thêm). Riêng workflow: 62/62 public + 20/20 test riêng.
+- Commit: f49e55f (workflow + integration)
+- Ma trận student: `python -m pytest -q -m student -o addopts=` → 270 passed (4 shape, cùng các test nhóm thêm). Riêng workflow: 62/62 public + 20/20 test riêng.
 - Cổng host: `python -m pytest -q` → 204 passed (29 test `test_trace_safety_all_shapes.py` trước đây bị skip vì workflow còn là stub, nay chạy và xanh).
 - Crash suite: `python -m lab8.crash_test --count 20 --out reports/crash.json` → `crash_safety 20/20`.
 - Benchmark (`reports/benchmark.json`, 14 claim × seed 11,22,33,44,55, MockLLM, giá mô phỏng):
@@ -63,7 +65,7 @@ Luồng xử lý trong `run_claim` → `_run`:
 | Shape | Pass rate | pass^5 | Variance | Cost/success (VND) | Mean steps | Model calls/trial |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | workflow | 1.000 | 1.000 | 0 | 28.86 | 4.43 | 1.00 |
-| single | 1.000 | 1.000 | 0 | 27.14 | 1.00 | 0.00 |
+| single | 1.000 | 1.000 | 0 | 29.03 | 4.64 | 3.64 |
 | orchestrator | 1.000 | 1.000 | 0 | 56.52 | 3.71 | 0.86 |
 | swarm | 0.986 | 0.929 | 0.0008 | 49.57 | 2.80 | 3.00 |
 
@@ -82,4 +84,4 @@ Luồng xử lý trong `run_claim` → `_run`:
 
 - Hoàn thành Shape A và phần integration được giao. Workflow đạt cả 3 must-pass trên bộ public: không bypass approval, không lộ secret, crash 20/20.
 - Workflow là ứng viên hợp lý cho shape chọn: pass rate 1.000, không dao động giữa seed, ít tự chủ nhất. Giới hạn: số đo chỉ trên 14 claim public và MockLLM, chưa phản ánh model thật; kết luận có thể đổi nếu ticket cần hiểu ngôn ngữ tự do (ví dụ khách không ghi mã đơn mà mô tả bằng lời).
-- Ghi chú cho nhóm: theo benchmark, Shape B có `mean_model_calls = 0` và `mean_steps = 1`, nên cần xem lại vòng ReAct có thật sự gọi model hay không trước khi so sánh trong ADR.
+- Đã xử lý vấn đề Shape B không tính model call trước khi chạy benchmark chốt, để so sánh trong ADR công bằng.
