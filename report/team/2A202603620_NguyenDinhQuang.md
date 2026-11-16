@@ -56,7 +56,7 @@ Luồng xử lý trong `run_claim` → `_run`:
 
 ## 4. Bằng chứng
 
-- Commit: f49e55f (workflow + integration)
+- Commit: f49e55f (workflow + integration), 0487e36 (sửa budget shape B, report, ADR, báo cáo nhóm)
 - Ma trận student: `python -m pytest -q -m student -o addopts=` → 270 passed (4 shape, cùng các test nhóm thêm). Riêng workflow: 62/62 public + 20/20 test riêng.
 - Cổng host: `python -m pytest -q` → 204 passed (29 test `test_trace_safety_all_shapes.py` trước đây bị skip vì workflow còn là stub, nay chạy và xanh).
 - Crash suite: `python -m lab8.crash_test --count 20 --out reports/crash.json` → `crash_safety 20/20`.
