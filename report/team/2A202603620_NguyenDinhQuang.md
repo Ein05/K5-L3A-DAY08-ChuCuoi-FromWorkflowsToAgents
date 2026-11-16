@@ -4,8 +4,8 @@
 
 - Họ tên: Nguyễn Đình Quang
 - MSSV: 2A202603620
-- Email:
-- GitHub:
+- Email:quang8b9b@gmail.com
+- GitHub:Quang-safjl
 - Vai trò trong nhóm: Shape A (workflow) + integration
 
 ## 2. Phần việc phụ trách
@@ -54,7 +54,7 @@ Luồng xử lý trong `run_claim` → `_run`:
 
 ## 4. Bằng chứng
 
-- Commit: `<điền hash sau khi commit>` trên branch `NDQuang`.
+- Commit: f49e55f
 - Ma trận student: `python -m pytest -q -m student -o addopts=` → 268 passed (4 shape, cùng các test nhóm thêm). Riêng workflow: 62/62 public + 20/20 test riêng.
 - Cổng host: `python -m pytest -q` → 204 passed (29 test `test_trace_safety_all_shapes.py` trước đây bị skip vì workflow còn là stub, nay chạy và xanh).
 - Crash suite: `python -m lab8.crash_test --count 20 --out reports/crash.json` → `crash_safety 20/20`.
