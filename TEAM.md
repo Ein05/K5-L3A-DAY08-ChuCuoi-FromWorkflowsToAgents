@@ -14,7 +14,7 @@
 |   1 | Nguyễn Đình Quang | 2A202603620 | quang8b9b@gmail.com | Quang-safjl | Shape A workflow + integration, báo cáo nhóm |
 |   2 | Mai Huy Hoat | 2A202603656 | maihuyhoat@gmail.com | MHuyHoat | Shape B single agent |
 |   3 | Lê Hải Bắc | 2A202603710 | lehbac05@gmail.com | Lehaibac05 | Shape C orchestrator + handoff, test trace an toàn |
-|   4 | (cần điền) | (cần điền) | (cần điền) | Ein05 | Nhóm trưởng: tạo repo, merge PR #1 |
+|   4 | Vũ Đức Anh | 2A202603714 | 26ai.anhvd4@vinuni.edu.vn | Ein05 | Tổng hợp thông tin, viết report |
 
 Gợi ý chia vai:
 
