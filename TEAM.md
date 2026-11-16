@@ -28,32 +28,18 @@ Gợi ý chia vai:
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
 | Nguyễn Đình Quang | Shape A workflow + integration, sửa budget shape B, ADR/research card/báo cáo nhóm | f49e55f, 0487e36 | `src/tests/test_workflow_shape.py` (20 test), `src/tests/test_single_budget.py` (2 test) |
-| Mai Huy Hoat | Shape B single agent | 45307e6, 92b0ead | (cần bổ sung) |
+| Mai Huy Hoat | Shape B single agent | 45307e6, 92b0ead | Không có test riêng trong commit cá nhân; các thay đổi được kiểm chứng bởi ma trận shape B (`src/tests/test_public_matrix.py`) và test budget được bổ sung sau khi merge (`src/tests/test_single_budget.py`) |
 | Lehaibac05 | Shape C orchestrator + handoff | 4c6ca49, 94366fe | `src/tests/test_orchestrator_handoff.py`, `src/tests/test_trace_safety_all_shapes.py` |
-| Ein05 | Nhóm trưởng, tạo repo, merge PR #1 | 865802a (merge) | (cần bổ sung) |
+| Vũ Đức Anh (Ein05) | Nhóm trưởng: tạo repo, điều phối và merge PR #1 | 865802a (merge), 0bba534 | Kiểm tra hồi quy các test được tích hợp trong PR #1: `src/tests/test_orchestrator_handoff.py`, `src/tests/test_trace_safety_all_shapes.py` |
 
 ## Cá nhân
 
 Mỗi thành viên đồng thời tạo một báo cáo riêng trong `report/` theo dạng:
 
 ```text
-report/team/MSSV_HoTen.md
+report/team/<MSSV>_<HoTen>.md
 ```
 
 Ví dụ: `report/team/20241234_NguyenVanAn.md`.
 
-Sao chép mục dưới đây cho từng thành viên.
-
-## MSSV_HoTen
-
-### Phần việc phụ trách
-
--
-
-### Đóng góp cụ thể
-
--
-
-### Bằng chứng
-
--
+Mỗi thành viên đã có báo cáo riêng trong `report/team/` theo đúng quy tắc đặt tên.

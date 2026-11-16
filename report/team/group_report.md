@@ -57,7 +57,7 @@ Quyết định kiến trúc: **workflow** — xem `report/team/decision_adr.md`
 
 ## 6. Tổng hợp đóng góp
 
-Chi tiết đóng góp của từng thành viên nằm trong `TEAM.md` (bảng đóng góp) và báo cáo cá nhân `report/team/MSSV_HoTen.md`.
+Chi tiết đóng góp của từng thành viên nằm trong `TEAM.md` (bảng đóng góp) và các báo cáo cá nhân `report/team/<MSSV>_<HoTen>.md`.
 
 ## 7. Hạn chế và hướng cải thiện
 
