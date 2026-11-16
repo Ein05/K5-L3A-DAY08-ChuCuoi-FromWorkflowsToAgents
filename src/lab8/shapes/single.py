@@ -4,6 +4,7 @@ import sqlite3
 
 from lab8.db import connect
 from lab8.durability import InjectedCrash, issue_refund
+from lab8.mock_llm import complete
 from lab8.runtime import run_react
 from lab8.schemas import Budget, RunResult, make_run_id
 from lab8.shapes.common import finish
@@ -59,6 +60,16 @@ def _run(conn: sqlite3.Connection, claim_id: str, *, seed: int, crash_at: str | 
     }
 
     def decide(seen: dict) -> dict:
+        action = _choose(seen)
+        # The agent "thinks" once per ReAct step. MockLLM is billed so cost stays
+        # comparable with the other shapes. The prompt carries only the step state
+        # (tool names, status), never the ticket text or a raw DB row.
+        step_state = f"last_tool={seen.get('last_tool', 'none')};next={action.get('tool') or 'final'}"
+        complete(budget, seed=seed, purpose="react", prompt=step_state)
+        trace.add("step", {"last_tool": seen.get("last_tool"), "next": action.get("tool") or "final"})
+        return action
+
+    def _choose(seen: dict) -> dict:
         if "last_tool" not in seen:
             return {"tool": "get_claim_view", "args": {"claim_id": claim_id}}
 

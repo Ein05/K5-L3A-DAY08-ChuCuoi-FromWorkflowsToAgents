@@ -2,17 +2,19 @@
 
 ## Thông tin nhóm
 
-- Tên nhóm:
+- Tên nhóm: ChuCuoi
 - Lớp: L3A
-- Repo nhóm: `K5-L3A-DAY08-TenNhom-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
-- URL repo, nhánh nộp, commit chốt:
+- Repo nhóm: `K5-L3A-DAY08-ChuCuoi-FromWorkflowsToAgents` (xem [SUBMISSION.md](SUBMISSION.md))
+- URL repo, nhánh nộp, commit chốt: https://github.com/Ein05/K5-L3A-DAY08-ChuCuoi-FromWorkflowsToAgents, nhánh `main`, commit `0487e36` (trùng `report/team/decision_adr.md`)
 
 ## Thành viên
 
 | STT | Họ tên | MSSV | Email | GitHub | Vai trò |
 | --: | ------ | ---- | ----- | ------ | ------- |
-|   1 |        |      |       |        |         |
-|   2 |        |      |       |        |         |
+|   1 | Nguyễn Đình Quang | 2A202603620 | quang8b9b@gmail.com | Quang-safjl | Shape A workflow + integration, báo cáo nhóm |
+|   2 | Mai Huy Hoat | 2A202603656 | maihuyhoat@gmail.com | MHuyHoat | Shape B single agent |
+|   3 | (cần điền) | (cần điền) | (cần điền) | Lehaibac05 | Shape C orchestrator + handoff, test trace an toàn |
+|   4 | (cần điền) | (cần điền) | (cần điền) | Ein05 | Nhóm trưởng: tạo repo, merge PR #1 |
 
 Gợi ý chia vai:
 
@@ -25,7 +27,10 @@ Gợi ý chia vai:
 
 | Người | Vai | Commit | Test đã thêm hoặc sửa |
 | --- | --- | --- | --- |
-| | | | |
+| Nguyễn Đình Quang | Shape A workflow + integration, sửa budget shape B, ADR/research card/báo cáo nhóm | f49e55f, 0487e36 | `src/tests/test_workflow_shape.py` (20 test), `src/tests/test_single_budget.py` (2 test) |
+| Mai Huy Hoat | Shape B single agent | 45307e6, 92b0ead | (cần bổ sung) |
+| Lehaibac05 | Shape C orchestrator + handoff | 4c6ca49, 94366fe | `src/tests/test_orchestrator_handoff.py`, `src/tests/test_trace_safety_all_shapes.py` |
+| Ein05 | Nhóm trưởng, tạo repo, merge PR #1 | 865802a (merge) | (cần bổ sung) |
 
 ## Cá nhân
 
